@@ -17,6 +17,7 @@ export const getBooks = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 export const createBook = async (req, res) => {
   try {
     const book = await Book.create(req.body);
@@ -25,6 +26,7 @@ export const createBook = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
 export const updateBook = async (req, res) => {
   try {
     const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
@@ -41,6 +43,7 @@ export const updateBook = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
 export const deleteBook = async (req, res) => {
   try {
     const book = await Book.findByIdAndDelete(req.params.id);
@@ -54,6 +57,7 @@ export const deleteBook = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 export const borrowBook = async (req, res) => {
   try {
     const { borrowedBy } = req.body;
@@ -76,6 +80,7 @@ export const borrowBook = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 export const returnBook = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
